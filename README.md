@@ -5,4 +5,4 @@ The goal is to develop numerical methods to verify and extend conjectures about 
 3. Analyze the large values of Random Zeta for several interval lengths. In particular, verify the known conjecture for such intervals.
 4. Develop numerical simulations for the Riemann zeta function itself.
 
-**This project is supported through the NSF career grant #1653602 : Statistics of Extrema in Complex and Disordered Systems**
+**This project is supported through the NSF CAREER grant #1653602 : Statistics of Extrema in Complex and Disordered Systems**
