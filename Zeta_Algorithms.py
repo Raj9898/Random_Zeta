@@ -44,11 +44,9 @@ def zetaStochastic(h : float, T: int, prime_list: Union[list, np.array] = None) 
   """
   assert T < int(1e7), 'Our prime list does not exceed the value 10^10'
   ret_val = 0.0
-  p = 0.0
+  p = 0
 
-  for i in range(len(prime_list)): 
-    p = prime_list[i]
-    
+  for p in prime_list: 
     # add the sequential terms of the primes up to some integer T 
     if (p <= T):
       ret_val += 1/np.sqrt(p) * np.cos(np.random.uniform(0, 2*np.pi) - h*np.log(p))
@@ -56,3 +54,30 @@ def zetaStochastic(h : float, T: int, prime_list: Union[list, np.array] = None) 
       break
 
   return ret_val
+
+
+def zetaNormRange(N : int, deltaN : int) -> np.array:
+  """
+  An itterative algorithm for computing the stochastic Zeta function defined X_t(h)
+  :param N: Provide a number (presumably large) to start computing values for
+  :param deltaN: Provide an integer number to cap off the consecutive sums of prime
+  :return: Returns an array of the normalized values for Zeta 
+  """
+  point = complex(0, 0)
+  zeta_value = point
+
+  # creating the interval range t inclusive [N, N+delta]
+  t_range=np.arange(N, N+deltaN)
+
+  # storage for the normal zeta 
+  norm_zeta_value = np.array([0.0]*deltaN)
+
+  # computing the Zeta function over a small interval defined by deltaN
+  for t in t_range:
+      point = complex(real=0.5, imag=t)
+      zeta_value = np.zeta(point)
+      
+      # computes the normalized zeta function -> refer to absoulte value code 
+      norm_zeta_value[t-N] = abs(zeta_value)
+
+  return norm_zeta_value
