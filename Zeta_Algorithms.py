@@ -13,6 +13,7 @@
 # Imports
 #################
 import numpy as np
+import mpmath as mp
 from typing import Union
 
 
@@ -71,7 +72,7 @@ def zetaNormRange(N : int, deltaN : int) -> np.array:
   # computing the Zeta function over a small interval defined by deltaN
   for t in t_range:
       point = complex(real=0.5, imag=t)
-      zeta_value = np.zeta(point)
+      zeta_value = mp.zeta(point)
       
       # computes the normalized zeta function -> refer to absoulte value code 
       norm_zeta_value[t-N] = abs(zeta_value)
