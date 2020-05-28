@@ -7,5 +7,3 @@ The goal is to develop numerical methods to verify and extend conjectures about 
 
 **This project is supported through the NSF CAREER grant #1653602 : Statistics of Extrema in Complex and Disordered Systems**
 
-[![Run on Repl.it](https://repl.it/badge/github/Raj9898/Random_Zeta)](https://repl.it/github/Raj9898/Random_Zeta)
-
