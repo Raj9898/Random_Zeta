@@ -36,7 +36,7 @@ def zetaNaive(x: complex) -> complex:
   return zetaSum
 
 
-def zetaStochastic(h : float, T: int, prime_list: np.array = None, upper: float = np.pi) -> float:
+def zetaStochastic(h : float, T: int, prime_list: np.array = None) -> float:
   """
   An itterative algorithm for computing the stochastic Zeta function defined X_t(h)
   :param h: Provide a floating interval range to observe the Zeta function
@@ -45,11 +45,12 @@ def zetaStochastic(h : float, T: int, prime_list: np.array = None, upper: float 
   """
   assert T < int(1e10), 'Our prime list does not exceed the value 10^7'
   ret_val = 0.0
-  
+
   # filter the primes up to and including the value of T
   primes = prime_list[prime_list <= T]
-  ret_val = sum([p**(-0.5) * np.cos(np.random.uniform(0, 2*upper) - h*np.log(p)) for p in primes])
-
+  for p in primes: 
+    ret_val += 1/np.sqrt(p) * np.cos(np.random.uniform(0, 2*np.pi) - h*np.log(p)) 
+    
   return ret_val
 
 
