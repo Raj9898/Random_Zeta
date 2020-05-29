@@ -36,7 +36,7 @@ def zetaNaive(x: complex) -> complex:
   return zetaSum
 
 
-def zetaStochastic(h : float, T: int, prime_list: np.array = None, upper: double = np.pi) -> float:
+def zetaStochastic(h : float, T: int, prime_list: np.array = None, upper: float = np.pi) -> float:
   """
   An itterative algorithm for computing the stochastic Zeta function defined X_t(h)
   :param h: Provide a floating interval range to observe the Zeta function
